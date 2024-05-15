@@ -20,4 +20,10 @@ router.post('/addComment',authenticateToken, addComment);
 router.get('/comments/:id',authenticateToken, getComments);
 router.delete('/deleteComment/:id', authenticateToken, deleteComment);
 
+app.get('*',(req,res,next)=>{
+    res.status(200).json({
+      message:'bad request'
+    })
+  })
+
 export default router;
